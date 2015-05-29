@@ -168,7 +168,11 @@ func max(a int, b int) int {
 
 func Ratio(s1 []rune, s2 []rune)int{
 	s1_len,s2_len := len(s1), len(s2)
-	value := (1 - DistanceForStrings(s1, s2,DefaultOptions) / max(s1_len,s2_len)) * 100
+	maxlen := max(s1_len,s2_len)
+	if maxlen == 0{
+		return 0
+	}
+	value := (1 - DistanceForStrings(s1, s2,DefaultOptions) / ) * 100
 	value2 := roundFloat(float64(value),0)
 	return int(value2)
 }
