@@ -172,7 +172,7 @@ func Ratio(s1 []rune, s2 []rune)int{
 	if maxlen == 0{
 		return 0
 	}
-	value := (1 - DistanceForStrings(s1, s2,DefaultOptions) / ) * 100
+	value := (1 - DistanceForStrings(s1, s2,DefaultOptions) / maxlen) * 100
 	value2 := roundFloat(float64(value),0)
 	return int(value2)
 }
