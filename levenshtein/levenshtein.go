@@ -164,3 +164,30 @@ func max(a int, b int) int {
 	}
 	return a
 }
+
+func Ratio(s1 []rune, s2 []rune)int{
+	s1_len,s2_len := len(s1), len(s2)
+	value := (1 - DistanceForStrings(s1, s2,DefaultOptions) / max(s1_len,s2_len)) * 100
+	value2 := roundFloat(value,0)
+	return int(value2)
+}
+
+func roundFloat(x float64, prec int) float64 {
+	var rounder float64
+	pow := math.Pow(10, float64(prec))
+	intermed := x * pow
+	_, frac := math.Modf(intermed)
+	intermed += .5
+	x = .5
+	if frac < 0.0 {
+		x = -.5
+		intermed -= 1
+	}
+	if frac >= x {
+		rounder = math.Ceil(intermed)
+	} else {
+		rounder = math.Floor(intermed)
+	}
+
+	return rounder / pow
+}
