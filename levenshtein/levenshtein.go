@@ -3,6 +3,7 @@ package levenshtein
 import (
 	"fmt"
 	"os"
+	"math"
 )
 
 type EditOperation int
